@@ -1,47 +1,54 @@
-
 h1, h2, nav, body {
     font-family: monospace;
     font-size: x-large;
     text-align: center;
-    background-color: rosybrown;
+    background-color: rgb(168, 137, 207);
 
+}
+
+h4 {
+    font-family: monospace;
+    font-size: large;
+    text-align: center;
 }
 
 hr {
     width: 300px;
-    border-color: limegreen; 
+    border-color: rgb(243, 160, 78); 
 }
 
 .select {
-    color: rgb(231, 164, 102);
-    background-color: lightblue;
+    color: rgb(240, 97, 235);
+    background-color: rgb(204, 243, 157);
     border: 20px 10px;
 }
 
 .cell {
-    width: 75px;
-    height: 75px;
-    border: 2px solid;
+    width: 50px;
+    height: 50px;
+    border: 1px solid;
     border-color: black;
     font-family:sans-serif;
     text-align: center;
-    font-size: 50px;
+    font-size: 30px;
     cursor: pointer;
+    color:azure; 
+
 }
 
 #boardcontainer {
     display: flex;
     flex-wrap: wrap;
-    width: 237px;
+    width: 208px;
     margin-left: auto;
     margin-right: auto;
-    background-color: blanchedalmond;
+    background-color: rgb(174, 216, 232);
 
 }
 
 .select_v2 {
-    color: rgb(255, 84, 167);
-    background-color: rgb(253, 212, 101);
+    color: rgb(252, 135, 9);
+    background-color: rgb(79, 250, 247);
     border: 20px 10px;
 }
 
@@ -62,7 +69,7 @@ h1, h2, nav {
     margin: 0 auto;
     position: absolute;
     opacity: 90%;
-    top:27.5%;
+    top:32%;
     left: 50%; 
     transform: translate(-50%, -50%);
     display:flex;
