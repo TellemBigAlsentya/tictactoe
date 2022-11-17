@@ -1,0 +1,43 @@
+* {
+    background-color:rgb(27, 27, 27);
+}
+
+h1 {
+    font-family: monospace;
+    text-align: center;
+    text-decoration-line: underline;
+    color:aqua;
+    font-size: 40px;
+}
+
+h3 {
+    font-family: monospace;
+    text-align: center;
+    color:greenyellow;
+}
+
+input {
+    color:aquamarine;
+    background-color: orchid;
+    height: 30px;
+    width: 60px;
+    margin: 5px;
+
+}
+
+.hidden {
+
+    display:none
+}
+
+#infinity {
+    color:blueviolet
+}
+
+#board-size-selection {
+   display: flex;
+    color: aquamarine;
+    font-family: monospace;
+    font-size: 15px;
+    justify-content: center;
+}

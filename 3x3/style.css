@@ -1,0 +1,85 @@
+
+h1, h2, nav, body {
+    font-family: monospace;
+    font-size: x-large;
+    text-align: center;
+    background-color: rosybrown;
+
+}
+
+hr {
+    width: 300px;
+    border-color: limegreen; 
+}
+
+.select {
+    color: rgb(231, 164, 102);
+    background-color: lightblue;
+    border: 20px 10px;
+}
+
+.cell {
+    width: 75px;
+    height: 75px;
+    border: 2px solid;
+    border-color: black;
+    font-family:sans-serif;
+    text-align: center;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+#boardcontainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 237px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: blanchedalmond;
+
+}
+
+.select_v2 {
+    color: rgb(255, 84, 167);
+    background-color: rgb(253, 212, 101);
+    border: 20px 10px;
+}
+
+h1, h2, nav {
+    font-family: monospace;
+    font-size: x-large;
+    text-align: center;
+    background-color: current;
+}
+
+#winmessage {
+    justify-content: center;
+    width: 300px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: darkseagreen;
+    border: 10px solid burlywood;
+    margin: 0 auto;
+    position: absolute;
+    opacity: 90%;
+    top:27.5%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    display:flex;
+    align-items: center;
+    color:rgb(255, 84, 167);
+}
+
+#winmessagetext {
+    padding: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    font-style: oblique; 
+    font-weight: bold;
+    margin: auto;
+    color:rgb(255, 84, 167)
+}
+
+.hidden {
+    display:none !important;
+}
