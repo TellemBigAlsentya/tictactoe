@@ -27,5 +27,5 @@ document.body.appendChild(gameBoardInstructions);
 
 const players = ['X', 'O'];
 let currentPLayer = players[0];
-let gameBoardElem;
 
+let gameBoardElem;
