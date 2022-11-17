@@ -12,8 +12,10 @@
         <h3 id="board-instructions">Instructions: Select a board size by submitting a number in the field below vvvv</h3>
     </div>
     <form id='board-size-selection'>
-        <input type="number" min="3" max="25" placeholder="Choose" required>
-        <input type="submit">
+        <input type="number" min="3" max="25" name="boardSizeSelector" value=3 required>
+        <input type="text" name="otherThing" required>
+
+        <button type="submit" id="board-size-subit-button">Play!</button>
     </form>
     <script src="javascript.js"></script>
 </body>
