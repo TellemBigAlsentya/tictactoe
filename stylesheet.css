@@ -16,13 +16,12 @@ h3 {
     color:greenyellow;
 }
 
-input {
+input, button {
     color:aquamarine;
     background-color: orchid;
     height: 30px;
     width: 60px;
     margin: 5px;
-
 }
 
 .hidden {
