@@ -1,44 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylesheet.css">
     <meta name="viewport" content="width=device-width, initial-scale =0, user-scalable= no">
     
 </head>
-<title id="title"> Three in a row! </title>
+<title></title>
 <body>
-<h1 > <stong>TIC</stong> <em>TAC</em> TOE 4!</h1>
-<h4><em> Get 4 in a Row to win! </em></h4>
-<hr>
-
-<nav id="navigation">
-         <button id="newgamebutton" class="select">New Game</button> 
-         <button id="statsbutton" class="select">Stats</button>  
-         <button id="gamevibesbutton" class="select">Game Vibes</button>  
-</nav>
-<div id="boardcontainer">
-    <div class="cell" data-index="0"></div>
-    <div class="cell" data-index="1"></div>    
-    <div class="cell" data-index="2"></div>
-    <div class="cell" data-index="3"></div>
-    <div class="cell" data-index="4"></div>
-    <div class="cell" data-index="5"></div>
-    <div class="cell" data-index="6"></div>
-    <div class="cell" data-index="7"></div>
-    <div class="cell" data-index="8"></div>
-    <div class="cell" data-index="9"></div>
-    <div class="cell" data-index="10"></div>
-    <div class="cell" data-index="11"></div>
-    <div class="cell" data-index="12"></div>
-    <div class="cell" data-index="13"></div>
-    <div class="cell" data-index="14"></div>
-    <div class="cell" data-index="15"></div>
-
-</div>
-<hr>
-<h2 id="playerPhrase">You're up Player 1!</h2>
-<span class="hidden" id="winmessage">
-    <p id="winmessagetext"></p>
-</span>
-<script src="javascript.js"></script>
+    <h1>TIC-TAC-TOE <em id="infinity">INFINITy</em></h1>
+    <div>
+        <h3 id="board-instructions">Instructions: Select a board size by submitting a number in the field below vvvv</h3>
+    </div>
+    <form id='board-size-selection'>
+        <input type="number" min="3" max="25" placeholder="Choose" required>
+        <input type="submit">
+    </form>
+    <script src="javascript.js"></script>
 </body>
