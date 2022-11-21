@@ -11,23 +11,26 @@ h1 {
 }
 
 h3 {
-    font-family: monospace;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     color:greenyellow;
+    font-size: 20px;
+
 }
 
-input {
+input, button {
     color:aquamarine;
     background-color: orchid;
-    height: 30px;
-    width: 60px;
+    height: 50px;
+    width: 80px;
     margin: 5px;
-
+    font-size: 20px;
+    justify-content: center;
 }
 
 .hidden {
 
-    display:none
+    display:none !important;
 }
 
 #infinity {
@@ -35,9 +38,78 @@ input {
 }
 
 #board-size-selection {
-   display: flex;
+    display: flex;
     color: aquamarine;
     font-family: monospace;
     font-size: 15px;
     justify-content: center;
+}
+
+.board-container {
+    display: flex;
+    flex-flow: row wrap; 
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.column-element {
+    flex-direction: column;
+}
+.cell {
+    border: 1px solid;
+    border-color:aqua;
+    font-family:sans-serif;
+    text-align: center;
+    cursor: pointer;
+}
+
+.X {
+    color: orchid;
+}
+
+.O {
+    color: rgb(255, 251, 0);
+}
+
+.cell:hover {
+    background-color: rgb(76, 0, 255);
+    opacity: 80%;
+}
+
+.cell-size-small {
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.cell-size-normal {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.cell-size-large {
+    width: 80px;
+    height: 80px;
+    font-size: 50px;
+    text-align: center;
+}
+
+#playerPhrase {
+    font-family: monospace;
+    font-size: 20px;
+    text-align: center;
+    background-color: current;
+    color: greenyellow;
+    display:flex;
+    justify-content: center;
+}
+
+#centerButton {
+    display:flex;
+    justify-content: center;
+    
 }
