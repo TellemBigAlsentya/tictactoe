@@ -3,22 +3,20 @@
 <head>
     <link rel="stylesheet" href="stylesheet.css">
     <meta name="viewport" content="width=device-width, initial-scale =0, user-scalable= no">
-    
 </head>
-<title></title>
+<title>TIC-TAC-TOE INFINITY</title>
 <body>
     <h1>TIC-TAC-TOE <em id="infinity">INFINITy</em></h1>
     <div>
-        <h3 id="board-instructions"></h3>
+        <h3 id="board-instructions">Instructions: Select a board size by submitting a number in the field below vvvv</h3>
     </div>
     <form id='board-size-selection'>
         <input type="number" min="3" max="25" name="boardSizeSelector" value=3 required>
         <button type="submit" id="board-size-submit-button">Play!</button>
     </form>
-    <h2 id="playerPhrase"></h2>
-        <div id="centerButton">
-            <button id="resetButton" class="hidden">New Game</button>
-        </div>
-    <script src="javascript.js"></script>
-    
+    <h2 id="playerPhrase" class="hidden">First up is X's</h2>
+    <div id="centerButton">
+        <button id="resetButton" class="hidden">New Game</button>
+    </div>
+    <script src="javascript.js"></script> 
 </body>

@@ -15,7 +15,6 @@ h3 {
     text-align: center;
     color:greenyellow;
     font-size: 20px;
-
 }
 
 input, button {
@@ -29,7 +28,6 @@ input, button {
 }
 
 .hidden {
-
     display:none !important;
 }
 
@@ -56,6 +54,7 @@ input, button {
 .column-element {
     flex-direction: column;
 }
+
 .cell {
     border: 1px solid;
     border-color:aqua;
