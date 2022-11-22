@@ -1,21 +1,18 @@
-let boardSize = null;
-let gameBoardInstructions = document.getElementById('board-instructions');
-gameBoardInstructions.textContent = 'Instructions: Select a board size by submitting a number in the field below vvvv';
-let boardState = []; 
-const players = ['X', 'O'];
-let currentPlayer = players[0];
-const playerPhrase = document.getElementById('playerPhrase');
-playerPhrase.innerHTML = `First up is ${currentPlayer}'s`;
-playerPhrase.classList.add('hidden');
-let gameOver = false;
-let resetButton = document.getElementById('resetButton');
-resetButton.addEventListener('click', resetGame);
-
-
-// create input for player to select board size and assign it to bordIntger
+// create input for player to select board size and assign it to boardInteger
 const boardSizeForm = document.getElementById('board-size-selection');
 const boardSizeSubmitButton = document.getElementById('board-size-submit-button');
+const playerPhrase = document.getElementById('playerPhrase');
+const gameBoardInstructions = document.getElementById('board-instructions');
+const resetButton = document.getElementById('resetButton');
 
+const players = ['X', 'O'];
+
+let boardState = [];
+let boardSize = null;
+let currentPlayer = players[0];
+let gameOver = false;
+
+resetButton.addEventListener('click', resetGame);
 boardSizeSubmitButton.addEventListener('click', (event) => {
     // preventDefault keeps the page form reloading 
     // normally HTML buttons with type=submit will cause a page refresh (that's the default behavior we're preventing)
@@ -26,52 +23,51 @@ boardSizeSubmitButton.addEventListener('click', (event) => {
     boardSize = parseInt(formData.get('boardSizeSelector')); // --> spits out the board size integer and saves it in boardSize
     // use boardSize to generate the board --> call board function, pass in boardSize
     // change instructions, set form to hidden class
-    gameBoardInstructions.textContent = `Instructions: Weclome players, get ${boardSize} marks in a row (up/down , side/side, or diagonally), to win!`;
+    gameBoardInstructions.textContent = `Instructions: Welcome players, get ${boardSize} marks in a row (up/down , side/side, or diagonally), to win!`;
     boardSizeForm.classList.add('hidden');
     playerPhrase.classList.remove('hidden'); 
     createBoard(boardSize);
-
 });
 
-function createBoard(cells) {
+function createBoard(boardSize) {
     //create html elements with cell class based on the form input 
-    let gameBoardContainer = document.createElement('div');
+    const gameBoardContainer = document.createElement('div');
     gameBoardContainer.classList.add('board-container');
     document.body.appendChild(gameBoardContainer);
     // create a grid of cells based on the passed in value for board size
     // ie. if cells = 3 then a 3 x 3 grid of cells
     // iterate over the passed in number to create an array of objects,
     // where each cell has a representative object
-    for(let i = 0; i < cells; i++) {
+    for(let i = 0; i < boardSize; i++) {
         //create a each column of cells as a container
         let columnElem = document.createElement('div');
         columnElem.classList.add('column-element');
         gameBoardContainer.appendChild(columnElem);
-
         
-        for(let j = 0; j < cells; j++) {
+        for(let j = 0; j < boardSize; j++) {
             //fill each column of cells
             let cellElem = document.createElement('div');
             cellElem.classList.add('cell');
-            cellElem.dataset.index = `${(cells * i) + j}`;
-            if(cells > 10) {
+            cellElem.dataset.index = `${(boardSize * i) + j}`;
+            if(boardSize > 10) {
                 cellElem.classList.add('cell-size-small');
-            } else if(cells < 4) {
+            } else if(boardSize < 4) {
                 cellElem.classList.add('cell-size-large');
             } else {
                 cellElem.classList.add('cell-size-normal');
 
             }
             columnElem.appendChild(cellElem);
-            let cellLocation = {
+            cellElem.addEventListener('click', doThisOnClick);
+
+            const cellLocation = {
                 'column':`${i}`,
                 'row':`${j}`,
                 'mark':'',
                 'isLeftDiagonal': i === j,
-                'isRightDiagonal': i + j + 1 === cells,
+                'isRightDiagonal': i + j + 1 === boardSize,
             };
             boardState.push(cellLocation);
-            cellElem.addEventListener('click', doThisOnClick);
         }
     } 
 }
@@ -115,18 +111,19 @@ function makeAMark(cell) {
         if(gameOver) {
             return;}
         currentPlayer = players[0];
-        
     }
 }
+
 //change the player phrase using a randomized selection 
 function changePlayerUpPhrase() {
     if(gameOver) {
         return;
     }
-    let phrases = [`You're Up, ${currentPlayer}!`, `${currentPlayer} is Up!`, `Make a move ${currentPlayer}!`, `Let's go ${currentPlayer}!`, `What are you waiting for ${currentPlayer}?`];
-    let randomNumber = Math.floor(Math.random() * 4);
+    const phrases = [`You're Up, ${currentPlayer}!`, `${currentPlayer} is Up!`, `Make a move ${currentPlayer}!`, `Let's go ${currentPlayer}!`, `What are you waiting for ${currentPlayer}?`];
+    const randomNumber = Math.floor(Math.random() * 4);
     playerPhrase.innerHTML = phrases[randomNumber];
 }
+
 //stuff that happens when someone wins/draw
 function endGame() {
     if(gameOver) {
@@ -137,7 +134,6 @@ function endGame() {
     }
 }
 
-
 // check for win by checking the object array for row, column, diagonal win
 // we know that if the key value pairs of mark and either row/column match, we have a win
 // for diagonal we are checking to see if marks are equal and either diagonal cond=true
@@ -145,20 +141,20 @@ function checkForRowWin() {
     //make function that increments through boardstate and creates an array of objects
     //that have matching rows -> these are our row win condition check
     for(let i = 0; i < boardSize; i++) { 
-        let matchingRows = boardState.filter(match => match.row === `${i}`);  
+        const matchingRows = boardState.filter(match => match.row === `${i}`);  
         // this spits out an array of objects that all have the same row value as the iterator
         //so for the first iteration, we can all the objects from boardstate, that have a row value of '0'
-        let matchingRowAndMark = matchingRows.filter(matchedMark => matchedMark.mark === `${currentPlayer}`);
+        const matchingRowAndMark = matchingRows.filter(matchedMark => matchedMark.mark === `${currentPlayer}`);
         // the filter method here moves through the array of objects created from matchingRows
         // and looks for all the objects that have a value of either X or O depending on currentPlayer         
         if(matchingRowAndMark.length === boardSize) {
             gameOver = true;
             playerPhrase.innerHTML = `${currentPlayer}'s Wins!`;
             break;
-        
         }
     }
 }
+
 //same function architecture for column win condition 
 function checkForColumnWin() {
     for(let i = 0; i < boardSize; i++) { 
@@ -188,17 +184,15 @@ function checkForDiagonalWin() {
 }
 
 function checkForDraw() {
-    let noEmptyCells = boardState.filter(nonEmpty => nonEmpty.mark === '');
-    console.log(noEmptyCells);
+    let noEmptyCells = boardState.filter(cell => cell.mark === '');
     if(noEmptyCells.length === 0 && gameOver === false) {
         gameOver = true; 
         playerPhrase.innerHTML = `It's a Draw!`;
-        
     }
 }
 
 function resetGame() {
-     // reset board state by allowing players to re-select board size
+    // reset board state by allowing players to re-select board size
     boardSize = null; 
     currentPlayer = players[0];
     playerPhrase.innerHTML = `First up is ${currentPlayer}'s`;
@@ -207,10 +201,10 @@ function resetGame() {
     gameBoardInstructions.textContent = 'Instructions: Select a board size by submitting a number in the field below vvvv';
     gameBoardInstructions.classList.remove('hidden');
     resetButton.classList.add('hidden');
-    let gameBoardContainer = document.querySelector('.board-container'); 
+    const gameBoardContainer = document.querySelector('.board-container'); 
     gameBoardContainer.remove();
     boardState = [];
-    gameOver = false;     
+    gameOver = false;
 }
 
 // if all the values are filled and there is no winner, draw. 
